@@ -4,125 +4,132 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TimeZen</title>
+  <link rel="icon" href="/PHOTO/logo.png" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-    }
-    [dir="ltr"] {
-      direction: ltr;
-      text-align: left;
-    }
-    [dir="rtl"] {
-      direction: rtl;
-      text-align: right;
-    }
-  </style>
-</head>
-<body class="text-black m-0 p-0 bg-white relative">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-<!-- Language switch button-->
+  <style>
+.popup {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  left: auto;
+  transform: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.3s ease;
+  padding: 14px 22px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  color: white;
+  font-weight: bold;
+  max-width: 90vw;
+  text-align: center;
+}
+.popup.show {
+  opacity: 1;
+}
+  </style>
+
+</head>
+<body class="overflow-x-hidden text-black m-0 p-0 bg-white relative font-['Cairo']">
+
+<!-- زر تبديل اللغة -->
 <div class="fixed top-4 left-4 z-50">
   <button id="language-toggle" class="bg-white/80 hover:bg-white text-gray-800 font-bold py-2 px-4 rounded-full transition shadow-md">
     English
   </button>
 </div>
 
-<!-- Background -->
-<div class="absolute inset-0 -z-10">
+<!-- الخلفية -->
+<div class="fixed inset-0 -z-10 w-full h-full">
   <img src="/PHOTO/bg.png" alt="Background" class="w-full h-full object-cover" />
 </div>
 
-<!-- Page content-->
+<!-- محتوى الصفحة -->
 <div class="relative z-10 backdrop-blur-md">
 
-  <!-- Header section-->
+  <!-- قسم الهيدر -->
   <section id="header" class="min-h-screen flex flex-col items-center justify-center text-center px-4 py-20">
-    <h1 class="text-4xl sm:text-5xl font-bold mb-4" data-ar="TimeZen - نظم وقتك بذكاء" data-en="TimeZen - Smart Time Management">TimeZen - نظم وقتك بذكاء</h1>
-    <p class="text-lg mb-8 max-w-2xl" data-ar="تطبيق يساعدك على تتبع وقتك وزيادة إنتاجيتك بدون تعقيد" data-en="An app to track your time and boost productivity effortlessly">تطبيق يساعدك على تتبع وقتك وزيادة إنتاجيتك بدون تعقيد</p>
-    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+    <h1 data-aos="fade-down" class="text-4xl sm:text-5xl font-bold mb-4" data-ar="TimeZen - نظم وقتك بذكاء" data-en="TimeZen - Smart Time Management">TimeZen - نظم وقتك بذكاء</h1>
+    <p data-aos="fade-up" data-aos-delay="200" class="text-lg mb-8 max-w-2xl" data-ar="تطبيق يساعدك على تتبع وقتك وزيادة إنتاجيتك بدون تعقيد" data-en="An app to track your time and boost productivity effortlessly">تطبيق يساعدك على تتبع وقتك وزيادة إنتاجيتك بدون تعقيد</p>
+    <button href="#cta" data-aos="zoom-in" data-aos-delay="400" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
             class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition hover:bg-blue-700"
             data-ar="جرب الآن" data-en="Try Now">
       جرب الآن
     </button>
-    <img src="/PHOTO/TimeZen.png" alt="TimeZen App" class="w-full object-cover transition group-hover:scale-105 mt-12 transition group-hover:scale-105 rounded-xl">
+    <img src="/PHOTO/TimeZen.png" alt="TimeZen App" data-aos="fade-up" data-aos-delay="300" class="w-full object-cover transition group-hover:scale-105 mt-12 rounded-xl">
   </section>
 
-  <!-- Features section-->
+  <!-- قسم المميزات -->
   <section id="features" class="py-20 px-4">
-    <h2 class="text-3xl font-bold text-center mb-10" data-ar="مميزات TimeZen" data-en="TimeZen Features">مميزات TimeZen</h2>
+    <h1 class="text-3xl font-bold text-center mb-10" data-ar="مميزات TimeZen" data-en="TimeZen Features">مميزات TimeZen</h1>
     <div class="flex flex-col gap-6 max-w-3xl mx-auto">
-      <div class="relative group overflow-hidden rounded-xl">
+      <div data-aos="fade-up" class="relative group overflow-hidden rounded-xl">
         <img src="/PHOTO/Analyze time utilization.png" class="w-full object-cover transition group-hover:scale-105" />
         <div class="absolute bottom-0 bg-black bg-opacity-60 text-white text-center w-full py-2" data-ar="تحليل استخدام الوقت" data-en="Time Analysis">تحليل استخدام الوقت</div>
       </div>
-      <div class="relative group overflow-hidden rounded-xl">
+      <div data-aos="fade-up" data-aos-delay="200" class="relative group overflow-hidden rounded-xl">
         <img src="/PHOTO/Smart reminders.png" class="w-full object-cover transition group-hover:scale-105" />
         <div class="absolute bottom-0 bg-black bg-opacity-60 text-white text-center w-full py-2" data-ar="تذكيرات ذكية" data-en="Smart Reminders">تذكيرات ذكية</div>
       </div>
-      <div class="relative group overflow-hidden rounded-xl">
+      <div data-aos="fade-up" data-aos-delay="400" class="relative group overflow-hidden rounded-xl">
         <img src="/PHOTO/User-friendly interface.png" class="w-full object-cover transition group-hover:scale-105" />
         <div class="absolute bottom-0 bg-black bg-opacity-60 text-white text-center w-full py-2" data-ar="واجهة سهلة الاستخدام" data-en="User-Friendly Interface">واجهة سهلة الاستخدام</div>
       </div>
-      <div class="relative group overflow-hidden rounded-xl">
+      <div data-aos="fade-up" class="relative group overflow-hidden rounded-xl">
         <img src="/PHOTO/Detailed statistics.png" class="w-full object-cover transition group-hover:scale-105" />
         <div class="absolute bottom-0 bg-black bg-opacity-60 text-white text-center w-full py-2" data-ar="إحصائيات مفصلة" data-en="Detailed Statistics">إحصائيات مفصلة</div>
       </div>
     </div>
     <div class="text-center mt-16">
-      <h2 class="text-3xl font-bold" data-ar="رائع أليس كذلك؟" data-en="Awesome, isn't it?">رائع أليس كذلك؟</h2>
-      <h3 class="text-xl mt-2" data-ar="جربه وكن أحسن نسخة من نفسك" data-en="Try it and be your best self">جربه وكن أحسن نسخة من نفسك</h3>
-      <p class="text-lg mt-4" data-ar="لا تتردد واحصل على التطبيق الآن" data-en="Get the app now">لا تتردد واحصل على التطبيق الآن</p>
+      <h2 data-aos="fade-down" class="text-3xl font-bold" data-ar="رائع أليس كذلك؟" data-en="Awesome, isn't it?">رائع أليس كذلك؟</h2>
+      <h3 data-aos="fade-up" data-aos-delay="200" class="text-xl mt-2" data-ar="جربه وكن أحسن نسخة من نفسك" data-en="Try it and be your best self">جربه وكن أحسن نسخة من نفسك</h3>
+      <p data-aos="zoom-in" data-aos-delay="400" class="text-lg mt-4" data-ar="لا تتردد واحصل على التطبيق الآن" data-en="Get the app now">لا تتردد واحصل على التطبيق الآن</p>
     </div>
   </section>
 
-  <!-- Communication section-->
-<section id="contact" class="py-20 px-4">
-  <h2 class="text-3xl font-bold text-center mb-6" data-ar="احصل على التطبيق الآن" data-en="Get the App Now">احصل على التطبيق الآن</h2>
-  <form class="max-w-xl mx-auto space-y-4">
-    <!-- Name field-->
-    <div>
+  <!-- قسم الاتصال -->
+  <section id="contact" class="py-20 px-4">
+    <h2 data-aos="fade-down" class="text-3xl font-bold text-center mb-6" data-ar="احصل على التطبيق الآن" data-en="Get the App Now">احصل على التطبيق الآن</h2>
+    <form data-aos="zoom-in" id="contact-form" class="max-w-xl mx-auto space-y-4">
       <input id="name" name="name" type="text" 
              class="w-full p-3 rounded-lg border border-gray-300"
              data-ar-placeholder="الاسم الكامل" 
              data-en-placeholder="Full Name"
-             placeholder="الاسم الكامل">
-    </div>
-    
-    <!-- Email field-->
-    <div>
+             placeholder="الاسم الكامل" required>
+      
       <input id="email" name="email" type="email" 
              class="w-full p-3 rounded-lg border border-gray-300"
              data-ar-placeholder="البريد الإلكتروني" 
              data-en-placeholder="Email Address"
-             placeholder="البريد الإلكتروني">
-    </div>
-    
-    <!-- Message field-->
-    <div>
+             placeholder="البريد الإلكتروني" required>
+      
       <textarea id="message" name="message" rows="4"
              class="w-full p-3 rounded-lg border border-gray-300"
              data-ar-placeholder="رسالتك" 
              data-en-placeholder="Your Message"
-             placeholder="رسالتك"></textarea>
-    </div>
+             placeholder="رسالتك" required></textarea>
+      
+      <button type="submit" data-aos="fade-up" data-aos-delay="200" id="submit-btn"
+              class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-3 rounded-full transition relative overflow-hidden">
+        <span id="submit-text" data-ar="احصل عليه الآن" data-en="Get It Now">احصل عليه الآن</span>
+        <div id="progress-container" class="absolute inset-x-0 bottom-0 h-1 bg-gray-200/50 overflow-hidden rounded-b-full">
+          <div id="progress-bar" class="h-full bg-green-300 transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </button>
+    </form>
     
-    <!-- Send button-->
-    <button type="submit" 
-            class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-3 rounded-full transition"
-            data-ar="احصل عليه الآن" 
-            data-en="Get It Now">
-      احصل عليه الآن
-    </button>
-  </form>
-</section>
+  </section>
+  <div id="popup" class="popup"></div>
 
-  <!-- Footer -->
+  <!-- الفوتر -->
   <footer id="footer" class="py-10 px-4 bg-black/30">
     <div class="max-w-4xl mx-auto">
       <h3 class="text-center text-xl font-semibold mb-8" data-ar="لا تفوتوا كل جديد والتواصل معنا على فضاءاتنا التالية" data-en="Connect with us on our social platforms">لا تفوتوا كل جديد والتواصل معنا على فضاءاتنا التالية</h3>
-      <div class="flex justify-center gap-4">
+      <div data-aos="fade-up" class="flex justify-center gap-4">
         <a href="#" class="bg-green-500 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-green-600 transition">
           <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-5 h-5" alt="WhatsApp" />
           <span data-ar="واتساب" data-en="WhatsApp">واتساب</span>
@@ -141,7 +148,7 @@
 
 </div>
 
-<!-- Floating buttons -->
+<!-- أزرار عائمة -->
 <div class="fixed bottom-6 right-6 z-50 transition-all duration-500 opacity-0 translate-y-6" id="try-now-float">
   <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" 
           class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition"
@@ -157,47 +164,41 @@
   </button>
 </div>
 
-<!-- Language switching script-->
+<!-- سكريبت تبديل اللغة -->
 <script>
   let currentLang = 'ar';
   
   const toggleBtn = document.getElementById('language-toggle');
   const dirAttribute = document.documentElement;
   
-function toggleLanguage() {
-  currentLang = currentLang === 'ar' ? 'en' : 'ar';
-  
-  toggleBtn.textContent = currentLang === 'ar' ? 'English' : 'العربية';
-  
-  dirAttribute.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-  dirAttribute.setAttribute('lang', currentLang);
-  
-  document.querySelectorAll('[data-ar], [data-en]').forEach(el => {
-    el.textContent = el.getAttribute(`data-${currentLang}`);
-  });
-  
-  document.querySelectorAll('input, textarea').forEach(el => {
-    const placeholder = el.getAttribute(`data-${currentLang}-placeholder`);
-    if (placeholder) {
-      el.placeholder = placeholder;
-    }
-  });
-  
-  localStorage.setItem('language', currentLang);
-}
+  function toggleLanguage() {
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    toggleBtn.textContent = currentLang === 'ar' ? 'English' : 'العربية';
+    dirAttribute.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+    dirAttribute.setAttribute('lang', currentLang);
+    
+    document.querySelectorAll('[data-ar], [data-en]').forEach(el => {
+      el.textContent = el.getAttribute(`data-${currentLang}`);
+    });
+    
+    document.querySelectorAll('input, textarea').forEach(el => {
+      const placeholder = el.getAttribute(`data-${currentLang}-placeholder`);
+      if (placeholder) el.placeholder = placeholder;
+    });
+    
+    localStorage.setItem('language', currentLang);
+  }
   
   function loadSavedLanguage() {
     const savedLang = localStorage.getItem('language');
-    if (savedLang && savedLang !== currentLang) {
-      toggleLanguage();
-    }
+    if (savedLang && savedLang !== currentLang) toggleLanguage();
   }
   
   toggleBtn.addEventListener('click', toggleLanguage);
   window.addEventListener('DOMContentLoaded', loadSavedLanguage);
 </script>
 
-<!-- Scrolling script-->
+<!-- سكريبت التمرير -->
 <script>
   window.addEventListener("scroll", () => {
     const tryBtn = document.getElementById("try-now-float");
@@ -220,9 +221,118 @@ function toggleLanguage() {
   });
 </script>
 
+<!-- سكريبت إرسال النموذج -->
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzgBt1dLp4molpHYdxSuYO5GTZ_yvCPY9YPaXYpaEZI5FbyFSrvELn9VSKbboW4aNfr/exec';
+  const form = document.getElementById('contact-form');
+  const popup = document.getElementById('popup');
+  const submitBtn = document.getElementById('submit-btn');
+  const submitText = document.getElementById('submit-text');
+  const progressBar = document.getElementById('progress-bar');
+  const progressContainer = document.getElementById('progress-container');
+  let popupTimeout = null;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    if (popupTimeout) {
+      clearTimeout(popupTimeout);
+      popupTimeout = null;
+    }
+    
+    const formData = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      message: document.getElementById('message').value.trim(),
+      timestamp: new Date().toISOString()
+    };
+
+    if (!formData.name || !formData.email || !formData.message) {
+      showPopup(
+        currentLang === 'ar' ? '⚠️ يرجى ملء جميع الحقول المطلوبة' : '⚠️ Please fill all required fields',
+        'bg-red-600',
+        3000
+      );
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitText.textContent = currentLang === 'ar' ? 'جاري الإرسال...' : 'Sending...';
+    progressContainer.classList.remove('hidden');
+    progressBar.style.width = '0%';
+
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+      progress += 5;
+      progressBar.style.width = `${progress}%`;
+      if (progress >= 90) clearInterval(progressInterval);
+    }, 100);
+
+    try {
+  const response = await fetch(scriptURL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData)
+  });
+
+  const result = await response.text();
+  console.log('Success:', result);
+
+  clearInterval(progressInterval);
+  progressBar.style.width = '100%';
+
+  form.reset();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => {
+    showPopup(
+      currentLang === 'ar' 
+        ? '✅ تم الإرسال بنجاح! سيتم التواصل معك عبر البريد الإلكتروني' 
+        : '✅ Sent successfully! We will contact you via email',
+      'bg-green-600',
+      5000
+    );
+  }, 500);
+
+} catch (error) {
+      console.error('Error:', error);
+      showPopup(
+        currentLang === 'ar' 
+          ? '❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى' 
+          : '❌ Error occurred while sending. Please try again',
+        'bg-red-600',
+        5000
+      );
+    } finally {
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitText.textContent = currentLang === 'ar' ? 'احصل عليه الآن' : 'Get It Now';
+        progressBar.style.width = '0%';
+      }, 1000);
+    }
+  });
+
+  function showPopup(message, bgColor, duration = 3000) {
+    if (popupTimeout) {
+      clearTimeout(popupTimeout);
+      popupTimeout = null;
+    }
+    
+    popup.textContent = message;
+    popup.className = `popup ${bgColor} show`;
+    
+    if (duration && typeof duration === 'number' && duration > 0) {
+      popupTimeout = setTimeout(() => {
+        popup.classList.remove('show');
+        popupTimeout = null;
+      }, duration);
+    }
+  }
+
+  AOS.init({
+    duration: 1000,
+    once: true    
+  });
+</script>
+
 </body>
 </html>
-
-
-
-
